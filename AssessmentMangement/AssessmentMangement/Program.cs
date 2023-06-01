@@ -4,6 +4,9 @@ using AssessmentMangement.Mapper;
 using AssessmentMangement.Repository.Employees;
 using AssessmentMangement.Repository;
 using AssessmentMangement.Services.Employees;
+using AssessmentMangement.Entites.ClassAssessments;
+using AssessmentMangement.Repository.ClassAssessments;
+using AssessmentMangement.Services.ClassAssessments;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -36,7 +39,12 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddTransient<IEmployeeService, EmployeeService>();
 
 
+builder.Services.AddTransient<IClassAssessmentService, ClassAssessmentService>();
+
+
 builder.Services.AddTransient<IEmployeeRepository, EmployeeRepository>();
+
+builder.Services.AddTransient<IClassAssessmentRepository, ClassAssessmentRepository>();
 
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddScoped<UnitOfWorkFilter>();

@@ -1,10 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using AssessmentMangement.Entites;
 using AssessmentMangement.Entites.Employees;
-
 using AssessmentMangement.EntitesBuilder;
 using AssessmentMangement.EntitesBuilder.Employees;
-
+using AssessmentMangement.EntitesBuilder.ClassAssessments;
+using AssessmentMangement.Entites.ClassAssessments;
 
 namespace AssessmentMangement.DataContext
 {
@@ -22,10 +22,10 @@ namespace AssessmentMangement.DataContext
         }
 
         public virtual DbSet<User> Users { get; set; }
-        
-
 
         public virtual DbSet<Employee> Employees { get; set; }
+
+        public virtual DbSet<ClassAssessment> ClassAssessments { get; set; }
 
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -37,6 +37,8 @@ namespace AssessmentMangement.DataContext
             modelBuilder.ApplyConfiguration(new UserBuilder());
 
             modelBuilder.ApplyConfiguration(new EmployeeBuilder());
+
+            modelBuilder.ApplyConfiguration(new ClassAssessmentBuilder());
 
 
 
