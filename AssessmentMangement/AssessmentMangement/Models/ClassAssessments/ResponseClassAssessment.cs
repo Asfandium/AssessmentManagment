@@ -2,7 +2,7 @@
 
 namespace AssessmentMangement.Models.ClassAssessments
 {
-    public class ResponseClassAssessment : BaseEntity
+    public class ResponseClassAssessment : BaseEntityModel
     {
         public Guid? CourseClassId { get; set; }
         public Guid? ContentRevisionId { get; set; }

@@ -7,6 +7,8 @@ using AssessmentMangement.EntitesBuilder.ClassAssessments;
 using AssessmentMangement.Entites.ClassAssessments;
 using AssessmentMangement.Entites.ClassStudentAssessments;
 using AssessmentMangement.EntitesBuilder.ClassStudentAssessments;
+using AssessmentMangement.Entites.ClassStudentAssessmentResources;
+using AssessmentMangement.EntitesBuilder.ClassStudentAssessmentResourcess;
 
 namespace AssessmentMangement.DataContext
 {
@@ -30,6 +32,11 @@ namespace AssessmentMangement.DataContext
         public virtual DbSet<ClassAssessment> ClassAssessments { get; set; }
 
         public virtual DbSet<ClassStudentAssessment> ClassStudentAssessments { get; set; }
+
+        public virtual DbSet<ClassStudentAssessmentResource> ClassStudentAssessmentResources { get; set; }
+
+
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
             => optionsBuilder.UseSqlServer(Configuration.GetSection("ConnectionStrings:sqlconnstr").Value);
 
@@ -43,8 +50,8 @@ namespace AssessmentMangement.DataContext
             modelBuilder.ApplyConfiguration(new ClassAssessmentBuilder());
 
             modelBuilder.ApplyConfiguration(new ClassStudentAssessmentBuilder());
-
-
+           
+            modelBuilder.ApplyConfiguration(new ClassStudentAssessmentResourceBuilder());
 
 
             OnModelCreatingPartial(modelBuilder);

@@ -59,15 +59,7 @@ namespace AssessmentMangement.Controllers
                 throw new ArgumentNullException();
             ClassStudentAssessment classStudentAssessment = _mapper.Map<ClassStudentAssessment>(model);
 
-            //Student student = new Student();
-            ////student.Id = Guid.Empty;
-            //student.StudentName = model.StudentName;
-            //student.FatherName = model.FatherName;
-            //student.Gender = model.Gender;
-            //student.DatetOfBirth = model.DatetOfBirth;
-            //student.Address = model.Address;
-
-            
+                      
 
 
 

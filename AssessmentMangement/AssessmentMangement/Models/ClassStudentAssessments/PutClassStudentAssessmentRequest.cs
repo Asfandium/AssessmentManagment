@@ -2,7 +2,7 @@
 
 namespace AssessmentMangement.Models.ClassStudentAssessments
 {
-    public class PutClassStudentAssessmentRequest : BaseEntity
+    public class PutClassStudentAssessmentRequest 
     {
         public Guid? ClassStudentId { get; set; }
         public Guid? ClassAssessmentId { get; set; }
