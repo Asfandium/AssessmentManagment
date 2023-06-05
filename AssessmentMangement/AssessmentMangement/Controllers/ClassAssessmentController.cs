@@ -8,7 +8,9 @@ using AssessmentMangement.Services.Employees;
 using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Net.Mime;
+using System.Reflection.Metadata;
 
 namespace AssessmentMangement.Controllers
 {
@@ -112,8 +114,45 @@ namespace AssessmentMangement.Controllers
             await _classAssessmentService.DeleteClassAssessment(classAssessment);
             return Success();
 
-
-            
+ 
         }
+
+
+
+        [HttpGet()]
+        [Route("/lms/ClassAssessment/GetClassAssessmentByCourseClassId/courseClassId")]
+        [Produces(MediaTypeNames.Application.Json)]
+        public ActionResult<List<ClassAssessment>> GetClassAssessmentByCourseClassId(Guid courseClassId)
+        {
+            List<ClassAssessment> classAssessment = _classAssessmentService.GetClassAssessmentByCourseClassId(courseClassId);
+
+            if (classAssessment == null || classAssessment.Count == 0)
+            {
+                return NotFound();
+            }
+
+            return Ok(classAssessment);
+        }
+
+
+
+        [HttpGet()]
+        [Route("/lms/ClassAssessment/GetClassAssessmentByContentRevisionId/contentnRevisionId")]
+        [Produces(MediaTypeNames.Application.Json)]
+
+        public ActionResult<List<ClassAssessment>> GetClassAssessmentByContentRevisionId(Guid contentnRevisionId)
+        {
+            List<ClassAssessment> classAssessment = _classAssessmentService.GetClassAssessmentByContentRevisionId(contentnRevisionId);
+
+            if (classAssessment == null || classAssessment.Count == 0)
+            {
+                return NotFound();
+            }
+
+            return Ok(classAssessment);
+        }
+
+
+
     }
 }

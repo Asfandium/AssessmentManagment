@@ -3,6 +3,8 @@ using AssessmentMangement.Repository;
 
 using AssessmentMangement.Repository.ClassAssessments;
 using AssessmentMangement.Entites.ClassAssessments;
+using System.Reflection.Metadata;
+using AssessmentMangement.Entites;
 
 namespace AssessmentMangement.Services.ClassAssessments
 {
@@ -46,6 +48,19 @@ namespace AssessmentMangement.Services.ClassAssessments
             _classAssessmentRepo.Delete(classAssessment);
             await _unitOfWork.SaveChangesAsync();
             return 1;
+        }
+
+
+        public List<ClassAssessment> GetClassAssessmentByCourseClassId(Guid courseClassId)
+        {
+            return _classAssessmentRepo.GetClassAssessmentByCourseClassId(courseClassId);
+        }
+
+        public List<ClassAssessment> GetClassAssessmentByContentRevisionId(Guid contentnRevisionId)
+
+        {
+            return _classAssessmentRepo.GetClassAssessmentByContentRevisionId(contentnRevisionId);
+
         }
     }
 }

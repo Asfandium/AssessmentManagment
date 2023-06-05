@@ -1,6 +1,8 @@
 ﻿using AssessmentMangement.Entites.ClassAssessments;
+using AssessmentMangement.Entites.ClassStudentAssessments;
 using AssessmentMangement.Entites.Employees;
 using AssessmentMangement.Models.ClassAssessments;
+using AssessmentMangement.Models.ClassStudentAssessments;
 using AssessmentMangement.Models.Employees;
 
 namespace AssessmentMangement.Mapper
@@ -22,6 +24,12 @@ namespace AssessmentMangement.Mapper
             CreateMap<PutClassAssessmentRequest, ClassAssessment>();
             CreateMap<ClassAssessment, ResponseClassAssessment>();
             CreateMap<ResponseClassAssessment, ClassAssessment>();
+
+
+            CreateMap<ClassStudentAssessment, PutClassStudentAssessmentRequest>();
+            CreateMap<PutClassStudentAssessmentRequest, ClassStudentAssessment>();
+            CreateMap<ClassStudentAssessment, ResponseClassStudentAssessment>();
+            CreateMap<ResponseClassStudentAssessment, ClassStudentAssessment>();
 
 
 

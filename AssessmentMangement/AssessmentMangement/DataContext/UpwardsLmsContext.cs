@@ -5,6 +5,8 @@ using AssessmentMangement.EntitesBuilder;
 using AssessmentMangement.EntitesBuilder.Employees;
 using AssessmentMangement.EntitesBuilder.ClassAssessments;
 using AssessmentMangement.Entites.ClassAssessments;
+using AssessmentMangement.Entites.ClassStudentAssessments;
+using AssessmentMangement.EntitesBuilder.ClassStudentAssessments;
 
 namespace AssessmentMangement.DataContext
 {
@@ -24,10 +26,10 @@ namespace AssessmentMangement.DataContext
         public virtual DbSet<User> Users { get; set; }
 
         public virtual DbSet<Employee> Employees { get; set; }
-
+        
         public virtual DbSet<ClassAssessment> ClassAssessments { get; set; }
 
-
+        public virtual DbSet<ClassStudentAssessment> ClassStudentAssessments { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
             => optionsBuilder.UseSqlServer(Configuration.GetSection("ConnectionStrings:sqlconnstr").Value);
 
@@ -39,6 +41,8 @@ namespace AssessmentMangement.DataContext
             modelBuilder.ApplyConfiguration(new EmployeeBuilder());
 
             modelBuilder.ApplyConfiguration(new ClassAssessmentBuilder());
+
+            modelBuilder.ApplyConfiguration(new ClassStudentAssessmentBuilder());
 
 
 

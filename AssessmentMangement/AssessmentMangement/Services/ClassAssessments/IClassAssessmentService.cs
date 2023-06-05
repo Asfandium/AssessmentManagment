@@ -1,6 +1,7 @@
 ﻿using AssessmentMangement.Entites.ClassAssessments;
 using AssessmentMangement.Entites.Employees;
 using AssessmentMangement.Repository;
+using System.Reflection.Metadata;
 
 namespace AssessmentMangement.Services.ClassAssessments
 {
@@ -12,6 +13,11 @@ namespace AssessmentMangement.Services.ClassAssessments
         Task<ClassAssessment> GetClassAssessmentByIdAsync(Guid Id);
         Task<IPagedList<ClassAssessment>> GetAllClassAssessmentsPaged(int pageIndex, int pageSize, string orderBy = "", string searchString = "", string searchById = null);
         Task<int> DeleteClassAssessment(ClassAssessment classAssessment);
+        List<ClassAssessment> GetClassAssessmentByCourseClassId(Guid courseClassId);
+
+        List<ClassAssessment> GetClassAssessmentByContentRevisionId(Guid contentnRevisionId);
+
+
 
     }
 }

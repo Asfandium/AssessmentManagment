@@ -3,6 +3,7 @@ using AssessmentMangement.Entites.ClassAssessments;
 using AssessmentMangement.Entites.Employees;
 using AssessmentMangement.Infrastructure;
 using AssessmentMangement.Repository.Employees;
+using System.Reflection.Metadata;
 
 namespace AssessmentMangement.Repository.ClassAssessments
 {
@@ -33,5 +34,21 @@ namespace AssessmentMangement.Repository.ClassAssessments
             return result;
 
         }
+
+        public List<ClassAssessment> GetClassAssessmentByCourseClassId(Guid courseClassId)
+        {
+            return
+               _dbContext.ClassAssessments.Where(d=> d.CourseClassId == courseClassId).ToList();
+     
+        }
+
+        public List<ClassAssessment> GetClassAssessmentByContentRevisionId(Guid contentnRevisionId)
+        {
+            return _dbContext.ClassAssessments
+                .Where(d => d.ContentRevisionId == contentnRevisionId)
+                .ToList();
+        }
+
+
     }
 }

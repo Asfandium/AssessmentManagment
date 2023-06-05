@@ -4,7 +4,7 @@ using AssessmentMangement.Entites.Employees;
 
 namespace AssessmentMangement.EntitesBuilder.Employees
 {
-    public class EmployeeBuilder: IEntityTypeConfiguration<Employee>
+    public class EmployeeBuilder : IEntityTypeConfiguration<Employee>
     {
         public void Configure(EntityTypeBuilder<Employee> builder)
         {
